@@ -39,15 +39,12 @@ except ImportError:
 # ══════════════════════════════════════════════════════════════════
 #  PATHS  — only change these
 # ══════════════════════════════════════════════════════════════════
-'''BASE          = r"C:\OneDrive\Desktop\nepse-stock-predictor"
+BASE = os.path.dirname(__file__)
+#BASE          = r"C:\OneDrive\Desktop\nepse-stock-predictor"
 TRAINING_DIR  = os.path.join(BASE, "Training_Data")   # 500 days CSVs
 NEW_DATA_DIR  = os.path.join(BASE, "New_Data")          # daily drop folder
 DB_PATH       = os.path.join(BASE, "nepse.db")          # auto-created
-'''
-BASE = os.path.dirname(__file__)
-TRAINING_DIR = os.path.join(BASE, "Training_Data")
-NEW_DATA_DIR = os.path.join(BASE, "New_Data")
-DB_PATH = os.path.join(BASE, "nepse.db")
+
 for d in [TRAINING_DIR, NEW_DATA_DIR]:
     os.makedirs(d, exist_ok=True)
 
