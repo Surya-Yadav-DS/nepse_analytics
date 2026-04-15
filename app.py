@@ -1419,7 +1419,8 @@ hr { border-color: #1E2A3A; margin: 1.2rem 0; }
 def main():
     import os
     st.write("Files in root:", os.listdir())
-    st.write("Files in Training_Data:", os.listdir("Training_Data"))
+    #st.write("Files in Training_Data:", os.listdir("Training_Data"))
+    st.write("Files in Training_Data:", os.listdir(TRAINING_DIR))
     today = datetime.date.today()
     init_db()
 
