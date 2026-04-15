@@ -39,11 +39,15 @@ except ImportError:
 # ══════════════════════════════════════════════════════════════════
 #  PATHS  — only change these
 # ══════════════════════════════════════════════════════════════════
-BASE          = r"C:\OneDrive\Desktop\nepse-stock-predictor"
+'''BASE          = r"C:\OneDrive\Desktop\nepse-stock-predictor"
 TRAINING_DIR  = os.path.join(BASE, "Training_Data")   # 500 days CSVs
 NEW_DATA_DIR  = os.path.join(BASE, "New_Data")          # daily drop folder
 DB_PATH       = os.path.join(BASE, "nepse.db")          # auto-created
-
+'''
+BASE = os.path.dirname(__file__)
+TRAINING_DIR = os.path.join(BASE, "Training_Data")
+NEW_DATA_DIR = os.path.join(BASE, "New_Data")
+DB_PATH = os.path.join(BASE, "nepse.db")
 for d in [TRAINING_DIR, NEW_DATA_DIR]:
     os.makedirs(d, exist_ok=True)
 
@@ -1422,7 +1426,13 @@ def main():
 
     # ── Developer panel: access via ?dev=1 in URL ──────────────────
     # e.g. http://localhost:8501/?dev=1
-    params = st.experimental_get_query_params()
+    #params = st.experimental_get_query_params()
+    try:
+        params = st.query_params
+        symbol = params.get("symbol", "")
+    except AttributeError:
+        params = st.experimental_get_query_params()
+        symbol = params.get("symbol", [""])[0]
     is_dev = params.get("dev", [""])[0] == "1"
 
     if is_dev:
