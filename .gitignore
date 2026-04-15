@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.env
+.venv/
+data/Training_Data/*
+data/New_Data/*
