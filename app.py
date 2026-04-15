@@ -1422,7 +1422,7 @@ def main():
 
     # ── Developer panel: access via ?dev=1 in URL ──────────────────
     # e.g. http://localhost:8501/?dev=1
-    params = st.experimental_get_query_params()
+    params = st.query_params
     is_dev = params.get("dev", [""])[0] == "1"
 
     if is_dev:
