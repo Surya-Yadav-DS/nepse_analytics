@@ -39,11 +39,15 @@ except ImportError:
 # ══════════════════════════════════════════════════════════════════
 #  PATHS  — only change these
 # ══════════════════════════════════════════════════════════════════
-BASE          = r"C:\OneDrive\Desktop\nepse-stock-predictor"
+'''BASE          = r"C:\OneDrive\Desktop\nepse-stock-predictor"
 TRAINING_DIR  = os.path.join(BASE, "Training_Data")   # 500 days CSVs
 NEW_DATA_DIR  = os.path.join(BASE, "New_Data")          # daily drop folder
 DB_PATH       = os.path.join(BASE, "nepse.db")          # auto-created
-
+'''
+BASE = os.path.dirname(__file__)
+TRAINING_DIR = os.path.join(BASE, "Training_Data")
+NEW_DATA_DIR = os.path.join(BASE, "New_Data")
+DB_PATH = os.path.join(BASE, "nepse.db")
 for d in [TRAINING_DIR, NEW_DATA_DIR]:
     os.makedirs(d, exist_ok=True)
 
@@ -1417,8 +1421,6 @@ hr { border-color: #1E2A3A; margin: 1.2rem 0; }
 #  MAIN APP
 # ══════════════════════════════════════════════════════════════════
 def main():
-    import os
-    st.write("Files in root:", os.listdir())
     #st.write("Files in Training_Data:", os.listdir("Training_Data"))
     st.write("Files in Training_Data:", os.listdir(TRAINING_DIR))
     today = datetime.date.today()
