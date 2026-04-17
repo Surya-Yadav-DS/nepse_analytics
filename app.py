@@ -1149,8 +1149,6 @@ html, body, [class*="css"] { font-family: 'Inter', sans-serif; }
 section[data-testid="stSidebar"] {
     background: #0D1117;
     border-right: 1px solid #1E2A3A;
-    min-width: 260px !important;
-
 }
 
 /* Hide hamburger / header */
