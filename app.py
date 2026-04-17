@@ -61,8 +61,10 @@ MIN_ROWS      = 10            # minimum sessions needed to train
 #  NEPAL TRADING CALENDAR
 #  NEPSE trades Monday - Friday . Saturday & Sunday are off.
 # ══════════════════════════════════════════════════════════════════
+import datetime
+
+# Use set for fast lookup
 HOLIDAYS = {
-    # Add Nepal public holidays here (NEPSE closes these days)
     datetime.date(2026, 1, 11),
     datetime.date(2026, 2, 18),
     datetime.date(2026, 4, 14),
@@ -73,14 +75,19 @@ HOLIDAYS = {
 }
 
 def is_trading_day(d: datetime.date) -> bool:
-    return d.weekday() in {0, 1, 2, 3, 6} and d not in HOLIDAYS
+    # Mon–Fri trading, Sat–Sun closed
+    return d.weekday() in {0, 1, 2, 3, 4} and d not in HOLIDAYS
+
 
 def next_n_trading_days(from_date: datetime.date, n: int) -> list:
-    days, cur = [], from_date
+    days = []
+    cur = from_date
+
     while len(days) < n:
         cur += datetime.timedelta(days=1)
         if is_trading_day(cur):
             days.append(cur)
+
     return days
 
 # ══════════════════════════════════════════════════════════════════
