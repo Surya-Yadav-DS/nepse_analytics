@@ -17,6 +17,7 @@
 """
 
 import os, glob, re, warnings, datetime, sqlite3, io, hashlib, time
+
 warnings.filterwarnings("ignore")
 
 import numpy as np
@@ -58,7 +59,7 @@ MIN_ROWS      = 10            # minimum sessions needed to train
 
 # ══════════════════════════════════════════════════════════════════
 #  NEPAL TRADING CALENDAR
-#  NEPSE trades Sunday–Thursday. Friday & Saturday are off.
+#  NEPSE trades Monday - Friday . Saturday & Sunday are off.
 # ══════════════════════════════════════════════════════════════════
 HOLIDAYS = {
     # Add Nepal public holidays here (NEPSE closes these days)
@@ -1134,7 +1135,7 @@ st.set_page_config(
     page_title="NEPSE Analytics",
     page_icon="📊",
     layout="wide",
-    initial_sidebar_state="collapsed",
+    initial_sidebar_state="expanded",
 )
 
 st.markdown("""
@@ -1152,7 +1153,7 @@ section[data-testid="stSidebar"] {
 }
 
 /* Hide hamburger / header */
-header[data-testid="stHeader"] { display: none; }
+#header[data-testid="stHeader"] { display: none; }
 .stDeployButton { display: none; }
 #MainMenu, footer { visibility: hidden; }
 
