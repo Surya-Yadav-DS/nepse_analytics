@@ -1153,7 +1153,7 @@ section[data-testid="stSidebar"] {
 }
 
 /* Hide hamburger / header */
-#header[data-testid="stHeader"] { display: none; }
+header[data-testid="stHeader"] { display: none; }
 .stDeployButton { display: none; }
 #MainMenu, footer { visibility: hidden; }
 
@@ -1528,12 +1528,7 @@ def main():
                               horizontal=True, label_visibility="visible")
 
         st.markdown("<hr>", unsafe_allow_html=True)
-        st.markdown(
-            f"<p style='font-size:10px;color:#334155;font-family:IBM Plex Mono,monospace;"
-            f"line-height:1.7'>"
-            f"🗄 {stats['tickers']} stocks &nbsp;·&nbsp; {stats['total']:,} sessions<br>"
-            f"📅 {stats['min_d']} → {stats['max_d']}</p>",
-            unsafe_allow_html=True)
+        
 
     # ══════════════════════════════════════════════════════════════
     #  LOAD DATA & TRAIN
