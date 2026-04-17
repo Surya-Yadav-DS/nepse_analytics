@@ -1153,7 +1153,6 @@ section[data-testid="stSidebar"] {
 }
 
 /* Hide hamburger / header */
-header[data-testid="stHeader"] { display: none; }
 .stDeployButton { display: none; }
 #MainMenu, footer { visibility: hidden; }
 
